@@ -22,9 +22,10 @@ def pieChart():
     # textprops={"fontproperties": font}：中文需要設定字型屬性
     plt.pie(
         x=sales,
+        # explode=(0.1, 0, 0, 0, 0), # 將第一個資料分離出來
         labels=labels,
         colors=colors,
-        autopct='%.2f%%',
+        autopct='%.2f%%', # 顯示百分比，保留2位小數
         startangle=90,
         wedgeprops={"width": 0.6},
         textprops={"fontproperties": font}

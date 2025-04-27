@@ -1,0 +1,7 @@
+name, price, author, date
+Python, 500, Paul, 2022/11/22
+na, 450, John, 2021/9/8
+Swift, -550, --, 20220102
+C#, , , 2020-3-9
+Swift, -550, --, 20220102
+Python, 600, Peter, invalid-date

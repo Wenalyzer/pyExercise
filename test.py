@@ -1,0 +1,2 @@
+nums = {}
+print(type(nums))

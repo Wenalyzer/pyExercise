@@ -50,7 +50,8 @@ def barChart_array2D():
     plt.bar(x - bar_width/2, data[0],
             width=bar_width, label="A", color="orange")
     # "x + bar_width/2"為"0 + 0.4/2"即為0.2代表偏右
-    plt.bar(x + bar_width/2, data[1], width=bar_width, label="B", color="blue")
+    plt.bar(x + bar_width/2, data[1], 
+            width=bar_width, label="B", color="blue")
     # 設定x座標上的對應數值。例如1月: x為0，對應數值為1
     plt.xticks(x, months)
     plt.title("Sales Volume")
