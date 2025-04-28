@@ -12,8 +12,8 @@ class Solution:
             complement = target - nums[i]
             # 檢查 complement 這個數字有沒有在字典 numMap 的「key」裡 (雜湊方法)
             # 把字典的 key 和 value 反過來存（即 key 為索引、value 為數字）不可行
-            if complement in numMap and numMap[complement] != i:
-                return [i, numMap[complement]]
+            if complement in numMap and numMap[complement] != i: # AND 確保 complement 不是自己
+                return [i, numMap[complement]] # numMap[complement] 可代表 nums[i] 的索引
 
 
 sol1 = Solution().twoSum([2, 7, 11, 15], 9)
