@@ -1,2 +1,0 @@
-nums = {}
-print(type(nums))

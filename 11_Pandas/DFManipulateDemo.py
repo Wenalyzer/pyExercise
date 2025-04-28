@@ -80,7 +80,7 @@ def update():
     condition = df['name'] == 'John'
     print(f"condition:\n{condition}")
     print(f"df.loc[condition, 'age'] = 33")
-    df.loc[condition, 'age'] = 33 
+    df.loc[condition, 'age'] = 33
     print(f"df:\n{df}")
     print("-----------------------------------")
     print("Ken居住城市改成Hualien")
@@ -98,28 +98,28 @@ def delete():
     print(f"delete()-測試資料")
     print(f"df:\n{df}")
     print("-----------------------------------")
-    # 預設inplace=False，所以不會刪除原DataFrame內資料
-    print(f"df.drop(1):\n{df.drop(1)}\n")
-    # 刪除列index=0與2(不連續)資料
-    print(f"df.drop([0, 2]):\n{df.drop([0, 2])}\n")
-    # 刪除列index=0到2(連續)資料
-    print(f"df.drop(df.index[0:2]):\n{df.drop(df.index[0:2])}")
+    # 刪除name為John的資料列
+    print(f"df[df['name'] != 'John']:\n{df[df['name'] != 'John']}")
+    print("\n也可drop()，但不推薦，較冗長且速度略慢")
+    print(f"df.drop(df[df['name'] == 'John'].index):\n{
+        df.drop(df[df['name'] == 'John'].index)}")
     print("-----------------------------------")
-    print("刪除city欄位資料")
-    print(f"df.drop('city', axis=1):\n{df.drop('city', axis=1)}")
+    # 刪除age >= 35或city == "Taipei"的資料列；"~"為not
+    print(f"df[~((df['age'] >= 35) | (df['city'] == 'Taipei'))]:\n{
+        df[~((df['age'] >= 35) | (df['city'] == 'Taipei'))]}")
     print("-----------------------------------")
-    print("刪除所有資料(只剩欄位名稱)")
-    print(f"df.drop(df.index):\n{df.drop(df.index)}")
+    # 刪除city欄位資料
+    print(f"df.drop(columns='city'):\n{df.drop(columns='city')}")
     print("-----------------------------------")
-    print("刪除原DataFrame所有資料")
-    print("df.drop(df.index, inplace=True)")
-    # inplace=True代表直接移除原DataFrame內容, 而非回傳新的DataFrame
-    df.drop(df.index, inplace=True)
-    print(f"df:\n{df}\n")
-    print("移除所有欄位名稱")
-    print("df.drop(columns=df.columns, inplace=True)")
-    df.drop(columns=df.columns, inplace=True)
-    print(f"df:\n{df}")
+    # 刪除age, city欄位資料
+    print(
+        f"df.drop(columns=['age', 'city']):\n{df.drop(columns=['age', 'city'])}")
+    print("-----------------------------------")
+    # 刪除所有欄(只剩列索引)
+    print(f"df.drop(columns=df.columns):\n{df.drop(columns=df.columns)}")
+    print("-----------------------------------")
+    # 刪除所有列(只剩欄位名稱)
+    print(f"df.drop(index=df.index):\n{df.drop(index=df.index)}")
 
 
 def main():

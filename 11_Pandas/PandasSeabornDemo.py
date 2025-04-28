@@ -20,11 +20,11 @@ def lineChart():
     print("-----------------------------------")
     # 呼叫melt()轉成可繪圖的資料結構，可參看「資料重塑」相關說明
     df = df.melt(
-        # 指定由"months"來擔當index
+        # id_vars是要保留的列，在轉換過程中，這些欄位不會被改變或拆開
         id_vars="months",
-        # 指定欄位的變數名稱為"products"，在此"products"為"A", "B"
+        # 建立新欄位products以儲存原欄位名稱(A, B)
         var_name="products",
-        # 指定值的變數名稱為"sales"，在此"sales"為a, b
+        # 建立新欄位sales以儲存原欄位內儲存的值(A, B商品的銷量)
         value_name="sales"
     )
     print("after melt()\n", df)
