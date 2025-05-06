@@ -57,7 +57,7 @@ def create_asset_value_csv(
     # 定義資產分類
     asset_codes = ["VOO", "006208", "00687B", "00919", "BTC", "WBETH", "BNB", "BCH"]
     idx = pd.date_range(start, end)
-    df = pd.DataFrame(index=idx, columns=asset_codes).fillna(0)
+    df = pd.DataFrame(index=idx, columns=asset_codes, dtype=int).fillna(0)
 
     usd_twd = get_usd_twd(start, end)
     ex_rate = usd_twd.reindex(idx, method="ffill").squeeze()
